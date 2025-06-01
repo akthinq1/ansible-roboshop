@@ -1,5 +1,5 @@
 - name: configure monogodb data base
-  hosts: monogodb
+  hosts: mongodb
   become: yes
 
   tasks:
