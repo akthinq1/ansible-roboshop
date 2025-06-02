@@ -1,6 +1,7 @@
 - name: configure monogodb data base
-  hosts: mongodb
   become: yes
+  hosts: mongodb
+  
 
   tasks:
   - name: create repo file
