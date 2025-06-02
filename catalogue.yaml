@@ -16,25 +16,25 @@
   
   - name: create system user
     ansible.builtin.user:
-    shell: /sbin/nologin
-    home: /app
-    system: true
+      shell: /sbin/nologin
+      home: /app
+      system: true
 
   - name: create directory
     ansible.builtin.file:
-    path: /app
-    state: directory
+      path: /app
+      state: directory
   
   - name: download code file
     ansible.builtin.get_url:
-    url: https://roboshop-artifacts.s3.amazonaws.com/catalogue-v3.zip
-    dest: /tmp/catalogue.zip
+      url: https://roboshop-artifacts.s3.amazonaws.com/catalogue-v3.zip
+      dest: /tmp/catalogue.zip
 
   - name: exctract catalogue code
     ansible.builtin.unarchive:
-    src: /tmp/catalogue.zip
-    dest: /app
-    remote_src: yes
+      src: /tmp/catalogue.zip
+      dest: /app
+      remote_src: yes
   
   - name: install npm pack
     community.general.npm:
@@ -42,8 +42,8 @@
 
   - name: copy catalogue service
     ansible.builtin.copy:
-    src: catalogue.service
-    dest: /etc/systemd/system/catalogue.service
+      src: catalogue.service
+      dest: /etc/systemd/system/catalogue.service
 
   - name: demon reload
     ansible.builtin.systemd_service:

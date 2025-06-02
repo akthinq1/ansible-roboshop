@@ -2,7 +2,6 @@
   become: yes
   hosts: mongodb
   
-
   tasks:
   - name: create repo file
     ansible.builtin.copy:
