@@ -18,7 +18,7 @@
       shell: /sbin/nologin
       system: true
       home: /app
-      
+
   - name: create app directory
     ansible.builtin.file:
       path: /app
