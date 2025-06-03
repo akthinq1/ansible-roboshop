@@ -43,7 +43,7 @@
 
   - name: copy user service in user server
     ansible.builtin.copy:
-      src: user.serivce
+      src: user.service
       dest: /etc/systemd/system/user.service
       remote_src: yes
 
