@@ -12,6 +12,7 @@
     ansible.builtin.dnf: 
       name: nodejs
       state: present
+
   - name: create roboshop system user
     ansible.builtin.user:
       name: roboshop
@@ -32,7 +33,8 @@
   - name: unzip the file
     ansible.builtin.unarchive:
       src: /tmp/cart.zip
-      dest: /app 
+      dest: /app
+      remote_src: yes
 
   - name: download npm packages
     community.general.npm:
