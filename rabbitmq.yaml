@@ -2,16 +2,20 @@
   hosts: rabbitmq.akdevops.fun
   become: yes
   tasks:
-    - name: install rabbitmq
-      ansible.builtin.dnf:
-        name: rabbitmq-server
-        state: installed
-    
     - name: import rabbitmq repo
       ansible.builtin.copy:
         src: rabbitmq.repo
         dest: /etc/yum.repos.d/rabbitmq.repo
-        
+
+    # - name: install rabbitmq
+    #   ansible.builtin.dnf:
+    #     name: rabbitmq-server
+    #     state: installed   
+
+    - name: install rabbitmq-server
+      ansible.builtin.dnf:
+        name: rabbitmq-server
+        state: installed     
 
     - name: enable and start the rabbitmq
       ansible.builtin.service:
