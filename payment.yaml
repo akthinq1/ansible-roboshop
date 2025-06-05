@@ -34,7 +34,10 @@
         dest: /app
         remote_src: yes
   
-    - name: install npm pack
+    # - name: install npm pack
+    #   community.general.npm:
+    #     path: /app
+    - name: install npm packages
       community.general.npm:
         path: /app
 
