@@ -4,7 +4,8 @@
   tasks:
     - name: install rabbitmq
       ansible.builtin.dnf:
-        name: rabbitmq-server -y
+        name: rabbitmq-server
+        state: installed
     
     - name: import rabbitmq repo
       ansible.builtin.copy:
